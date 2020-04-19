@@ -1,1 +1,2 @@
-This is solution for first exercise of development of mobile applications
+This are solutions for exercises in development of mobile applications.
+LV1 is first exercise.
