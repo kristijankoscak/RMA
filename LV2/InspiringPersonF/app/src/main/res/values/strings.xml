@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">InspiringPersonF</string>
+    <string name="tvImageLink">Enter link of your person image:</string>
+    <string name="hintImageLink">https://upload.image.com</string>
+    <string name="tvBirthDate">Enter date of birth:</string>
+    <string name="hintDate">15/8/1956</string>
+    <string name="tvDeathDate">Enter date of death:</string>
+    <string name="tvDesc">Enter short description:</string>
+    <string name="hintDesc">He was a good man..</string>
+    <string name="btnText">List of Inspiring person</string>
+    <string name="btnAddPerson">Add</string>
+    <string name="born">Born:</string>
+    <string name="died">Died:</string>
+    <string name="desc">Short descrpiton..</string>
+    <string name="tvQuote">Quote</string>
+    <string name="hintQuote">Very good quote.</string>
+    <string name="btnUpdatePerson">Update</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
