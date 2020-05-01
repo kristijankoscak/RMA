@@ -1,3 +1,4 @@
-## Notes:
+## Notes for InspiringPersonF:
+
 - *Click on person description deletes that person.*
-- *Long click on description starts person update. (in InspiringPersonF)*
+- *Long click on description starts person update.*
