@@ -1,6 +1,5 @@
 package hr.ferit.kristijankoscak.inspiringpersonf
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_add_person.*
-import kotlinx.android.synthetic.main.fragment_add_person.view.*
 import kotlinx.android.synthetic.main.fragment_add_person.view.btnAddPerson
 
 
@@ -22,7 +20,7 @@ class AddPersonFragment : Fragment() , FragmentInteractionListener{
     private lateinit var etQuote: EditText
     private var identifier:Int = 0
 
-    private lateinit var mMain: MainActivity
+    private lateinit var mMainActivity: MainActivity
 
     override fun submit(text: String?) {
         var id :Int = text!!.toInt()
@@ -30,14 +28,11 @@ class AddPersonFragment : Fragment() , FragmentInteractionListener{
         setInputs(id)
         btnAddPerson.setText("Update")
     }
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mMain = context as MainActivity
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mMain.setListener2(this)
+        mMainActivity = activity as MainActivity
+        mMainActivity.setAddListener(this)
     }
 
     companion object {
@@ -53,14 +48,16 @@ class AddPersonFragment : Fragment() , FragmentInteractionListener{
         return rootView;
     }
     private fun setUpUi() {
+        initializeElements()
         rootView.btnAddPerson.setOnClickListener{ addPerson() }
+    }
+    private fun initializeElements(){
         etImageLink = rootView.findViewById(R.id.etImageLink)
         etBirthDate = rootView.findViewById(R.id.etBirthDate)
         etDeathDate = rootView.findViewById(R.id.etDeathDate)
         etDesc = rootView.findViewById(R.id.etDesc)
         etQuote = rootView.findViewById(R.id.etQuote)
     }
-
     private fun addPerson(){
         var person : InspiringPerson = InspiringPerson(
             0,
@@ -68,25 +65,30 @@ class AddPersonFragment : Fragment() , FragmentInteractionListener{
             etBirthDate.text.toString(),
             etDeathDate.text.toString(),
             etDesc.text.toString(),
-            etQuote.text.toString()
+            etQuote.text.toString().split(",").toMutableList()
         )
         if(checkInputs() && btnAddPerson.text == "Add") {
-            person.id = PersonRepository.persons.last().id + 1
-            PersonRepository.add(person)
-            mMain.addPerson("Person added!")
-            resetInputs()
-            Toast.makeText(activity, "Person added!", Toast.LENGTH_LONG).show()
+            proceedAdd(person)
         }
         if(checkInputs() && btnAddPerson.text == "Update"){
-            person.id = this.identifier
-            PersonRepository.replace(person)
-            mMain.addPerson("Person added!")
-            resetInputs()
-            btnAddPerson.setText("Add")
+            proceedUpdate(person)
         }
         else{
             Toast.makeText(activity, "One of input is empty! Try again.", Toast.LENGTH_LONG).show()
         }
+    }
+    private fun proceedAdd(person:InspiringPerson){
+        person.id = PersonRepository.persons.last().id + 1
+        PersonRepository.add(person)
+        resetInputs()
+        mMainActivity.addPerson("Person added!")
+    }
+    private fun proceedUpdate(person:InspiringPerson){
+        person.id = this.identifier
+        PersonRepository.replace(person)
+        mMainActivity.addPerson("Person updated!")
+        resetInputs()
+        btnAddPerson.setText("Add")
     }
     private fun resetInputs() {
         etImageLink.text.clear()
@@ -108,6 +110,7 @@ class AddPersonFragment : Fragment() , FragmentInteractionListener{
         etBirthDate.setText(PersonRepository.get(id)!!.birthDate)
         etDeathDate.setText(PersonRepository.get(id)!!.deathDate)
         etDesc.setText(PersonRepository.get(id)!!.description)
-        etQuote.setText(PersonRepository.get(id)!!.quote)
+        var quotes = PersonRepository.get(id)!!.quote.toString().replace("[","").replace("]","")
+        etQuote.setText(quotes)
     }
 }

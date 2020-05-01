@@ -1,26 +1,17 @@
 package hr.ferit.kristijankoscak.inspiringpersonf
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
-import kotlinx.android.synthetic.main.activity_edit_person.*
-import kotlinx.android.synthetic.main.activity_edit_person.view.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.fragment_add_person.*
-import kotlinx.android.synthetic.main.fragment_add_person.view.*
 import kotlinx.android.synthetic.main.fragment_show_persons.view.*
+import java.util.*
 
 
 class ShowPersonsFragment : Fragment() ,FragmentInteractionListener{
@@ -32,12 +23,7 @@ class ShowPersonsFragment : Fragment() ,FragmentInteractionListener{
     override fun onActivityCreated(savedState: Bundle?) {
         super.onActivityCreated(savedState)
         mMainActivity = activity as MainActivity
-        mMainActivity.setListener(this)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mMainActivity = context as MainActivity
+        mMainActivity.setShowListener(this)
     }
 
     override fun submit(text:String?){
@@ -57,17 +43,21 @@ class ShowPersonsFragment : Fragment() ,FragmentInteractionListener{
     }
 
     private fun setUpUi(){
+        initializeElements()
+        displayData()
+    }
+    private fun initializeElements(){
         personDisplay = rootView.personDisplay
         personDisplay.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL,false)
         personDisplay.itemAnimator = DefaultItemAnimator()
         personDisplay.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
-        displayData()
     }
     private fun displayData() {
         val personListener = object: PersonInteractionListener{
             override fun onShowDetails(id: Int) {
                 val person = PersonRepository.get(id)
-                Toast.makeText(activity, person!!.quote.toString(), Toast.LENGTH_SHORT).show()
+                val randomNumber : Int = Random().nextInt(person!!.quote.size)
+                Toast.makeText(activity, person!!.quote[randomNumber], Toast.LENGTH_SHORT).show()
             }
             override fun removePerson(id: Int) {
                 PersonRepository.remove(id)
@@ -75,15 +65,7 @@ class ShowPersonsFragment : Fragment() ,FragmentInteractionListener{
             }
 
             override fun updatePerson(id: Int) {
-                val person = PersonRepository.get(id)
                 mMainActivity.editPerson(id.toString())
-
-
-
-                /*val id :String = id.toString()
-                val intent:Intent = Intent(activity,EditPerson::class.java)
-                intent.putExtra("id", id)
-                startActivity(intent)*/
             }
         }
         personDisplay.adapter = PersonAdapter(PersonRepository.persons,personListener)

@@ -42,7 +42,7 @@ class PersonHolder(itemView: View):RecyclerView.ViewHolder(itemView){
             .load(person.image)
             .fit()
             .placeholder(R.drawable.person_icon)
-            .error(android.R.drawable.stat_notify_error)
+            .error(R.drawable.person_icon)
             .into(itemView.personImage)
         itemView.personImage.setOnClickListener{personListener.onShowDetails(person.id)}
     }

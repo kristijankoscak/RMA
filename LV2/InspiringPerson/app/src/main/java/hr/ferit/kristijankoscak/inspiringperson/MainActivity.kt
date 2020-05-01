@@ -25,13 +25,15 @@ class MainActivity : AppCompatActivity() {
     }
     private fun addPerson(){
         if(checkInputs()) {
-            PersonRepository.add(InspiringPerson(
+            PersonRepository.add(
+                InspiringPerson(
                     PersonRepository.persons.size + 1,
                     etImageLink.text.toString(),
                     etBirthDate.text.toString(),
                     etDeathDate.text.toString(),
                     etDesc.text.toString(),
-                    etQuote.text.toString())
+                    etQuote.text.toString().split(",").toMutableList()
+                )
             )
             resetInputs()
             Toast.makeText(applicationContext, "Person added!", Toast.LENGTH_LONG).show()

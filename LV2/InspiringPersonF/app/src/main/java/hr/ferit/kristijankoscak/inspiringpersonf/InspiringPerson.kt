@@ -6,5 +6,5 @@ data class InspiringPerson(
     val birthDate: String,
     val deathDate: String,
     val description:String,
-    val quote: String
+    val quote: MutableList<String>
 ) {}
