@@ -1,3 +1,3 @@
 ## Notes:
-- *Click on description delete that person.*
-- Long click on description starts person update.
+- *Click on person description deletes that person.*
+- *Long click on description starts person update.*
