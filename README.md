@@ -4,8 +4,8 @@
 ### [LV1](https://github.com/kristijankoscak/RMA/tree/master/LV1) is first exercise.
 
 -Task 1:
--- Write code for game JAMB. (SOLID,OOP,divide functionalities in classes)
--- Enable throwing dice, check state, playing with 6 dices, locking dices (0-6),throwing only opened dices, minimum 3 checks for jamb,poker and skala
+ -Write code for game JAMB. (SOLID,OOP,divide functionalities in classes)
+ -Enable throwing dice, check state, playing with 6 dices, locking dices (0-6),throwing only opened dices, minimum 3 checks for jamb,poker and skala
 -Task 2:
 - Write code for game BlackJack. (SOLID,OOP...)
 - Enable playing against computer, computer must take card on 16 or less, stop on 17 or more. 
