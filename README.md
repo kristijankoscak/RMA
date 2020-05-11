@@ -1,7 +1,7 @@
 ## This are solutions for exercises in development of mobile applications.
 ---
 
-### LV1 is first exercise.
+### [LV1](https://github.com/kristijankoscak/RMA/tree/master/LV1) is first exercise.
 
 Task 1:
 - Write code for game JAMB. (SOLID,OOP,divide functionalities in classes)
@@ -11,7 +11,7 @@ Task 2:
 - Enable playing against computer, computer must take card on 16 or less, stop on 17 or more. 
 Player is playing first,then computer. For computer AS is 1 only if sum will be more than 21
 
-### LV2 is second exercise.
+### [LV2](https://github.com/kristijankoscak/RMA/tree/master/LV2) is second exercise.
 
 Task 1:
 - Make application for inspiring persons. Every person is featured with object of class InspringPerson. 
@@ -22,7 +22,7 @@ Task 2:
   - Make first task using fragments.
   - Enable deleting persons from list and updating person info.
 
-### LV3 
+### [LV3](https://github.com/kristijankoscak/RMA/tree/master/LV3) 
 
 Task 1:
 - Make application for bird counting. Use one TextView and four buttons. Each button is bird color.
