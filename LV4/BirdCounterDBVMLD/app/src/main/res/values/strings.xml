@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BirdCounter-DB-VM-LD</string>
+    <string name="btnResetCounter">RESET COUNTER</string>
+    <string name="btnResetColor">RESET COLOR</string>
+</resources>

@@ -1,0 +1,2 @@
+rootProject.name='BirdCounter-DB-VM-LD'
+include ':app'
