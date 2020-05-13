@@ -1,4 +1,4 @@
-## This are solutions for exercises in development of mobile applications.
+## These are solutions for exercises in development of mobile applications.
 ---
 
 ### [LV1](https://github.com/kristijankoscak/RMA/tree/master/LV1) is first exercise.
