@@ -33,3 +33,12 @@ Player is playing first,then computer. For computer AS is 1 only if sum will be 
 
 - Task 2:
     - Make task 2 from LV2 but instead of saving in memory, use Room database and save everything in it.
+
+
+### [LV4](https://github.com/kristijankoscak/RMA/tree/master/LV4) 
+
+- Task 1:
+    - Make application from LV3, task 1 using data binding,viewmodel and live data
+    
+- Task 2:
+    - Make example from  https://blog.mindorks.com/mvvm-architecture-android-tutorial-for-beginners-step-by-step-guide .
