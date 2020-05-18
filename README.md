@@ -42,3 +42,15 @@ Player is playing first,then computer. For computer AS is 1 only if sum will be 
     
 - Task 2:
     - Make example from  https://blog.mindorks.com/mvvm-architecture-android-tutorial-for-beginners-step-by-step-guide .
+    
+    
+### [LV5](https://github.com/kristijankoscak/RMA/tree/master/LV5) 
+
+- Task 1:
+    - Make simple app with three imagebuttons and connect each with some sound.
+    
+- Task 2:
+    - Make app and enable tracking your location using google maps. Add marker of your location.
+    - Also you must enable adding new marker on map accompanied with sound.
+    - On button you can take picture with your camera. Picture name is your current location.
+    - After taking picture add notification. Clicking on it you're opening taken image.
