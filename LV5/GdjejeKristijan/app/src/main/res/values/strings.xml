@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Gdje je Kristijan</string>
+    <string name="locationDisplayTextDefault">Location</string>
+    <string name="permissionNotGranted">You don\'t have permission!</string>
+    <string name="photo_btn">Snimi fotografiju</string>
+    <string name="google_maps_key">AIzaSyCPRVMTp616Dq_5-UCchVTZqWKKkBUK9O8</string>
+</resources>

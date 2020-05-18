@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/photo_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/photo_btn"
+        android:background="@color/bgColorPhotoBtn"
+        android:layout_margin="@dimen/defaultMargin"/>
+    <TextView
+        android:id="@+id/locationDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/locationDisplayTextDefault"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo_btn"
+        android:layout_margin="@dimen/defaultMargin"/>
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        app:layout_constraintTop_toBottomOf="@id/locationDisplay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
